@@ -6,9 +6,7 @@ plugins {
 android {
     namespace = "com.device.deviceos"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
@@ -53,4 +51,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    //路由
+    implementation("androidx.navigation:navigation-compose:2.9.6")
+    //图标库
+    implementation("androidx.compose.material:material-icons-extended")
 }
