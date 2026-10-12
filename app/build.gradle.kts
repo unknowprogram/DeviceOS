@@ -32,6 +32,8 @@ android {
     }
     buildFeatures {
         compose = true
+        // RetrofitClient 里用 BuildConfig.DEBUG 控制日志开关
+        buildConfig = true
     }
 }
 
@@ -55,4 +57,12 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.6")
     //图标库
     implementation("androidx.compose.material:material-icons-extended")
+    //网络请求依赖库
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    //网络日志拦截器，版本要和 okhttp 保持一致
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    //协程，safeApiCall 里的 withContext / Dispatchers.IO 需要
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 }

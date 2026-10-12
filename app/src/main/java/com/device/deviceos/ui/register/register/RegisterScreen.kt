@@ -1,7 +1,6 @@
 package com.device.deviceos.ui.register
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -10,7 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.DirectionsCar
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -25,12 +24,19 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.graphics.Color
-import com.device.deviceos.ui.theme.*
+import com.device.deviceos.common.theme.DriveOSAccent
+import com.device.deviceos.common.theme.DriveOSBackground
+import com.device.deviceos.common.theme.DriveOSBorder
+import com.device.deviceos.common.theme.DriveOSCard
+import com.device.deviceos.common.theme.DriveOSError
+import com.device.deviceos.common.theme.DriveOSSecondaryText
+import com.device.deviceos.common.theme.DriveOSText
 
 @Composable
 fun RegisterScreen(
-    onRegisterSuccess: () -> Unit
+    onRegisterSuccess: () -> Unit,
+    // 返回上一页（登录页）
+    onBackClick: () -> Unit = {}
 ) {
     // 保存用户输入的手机号
     var phone by remember { mutableStateOf("") }
@@ -78,13 +84,13 @@ fun RegisterScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
+                imageVector = Icons.Default.ChevronLeft,
                 contentDescription = "返回",
                 tint = DriveOSText,
                 modifier = Modifier
                     .size(28.dp)
                     .clickable {
-                        message = "当前为注册演示页面"
+                        onBackClick()
                     }
             )
 
@@ -442,7 +448,7 @@ fun RegisterScreen(
                 color = DriveOSAccent,
                 fontSize = 13.sp,
                 modifier = Modifier.clickable {
-                    message = "登录页面后续实现"
+                    onBackClick()
                 }
             )
         }

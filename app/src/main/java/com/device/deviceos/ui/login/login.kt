@@ -47,18 +47,18 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.device.deviceos.R
-import com.device.deviceos.ui.theme.BackgroundOverlayBottom
-import com.device.deviceos.ui.theme.BackgroundOverlayMiddle
-import com.device.deviceos.ui.theme.BackgroundOverlayTop
-import com.device.deviceos.ui.theme.Blue
-import com.device.deviceos.ui.theme.InputBackground
-import com.device.deviceos.ui.theme.InputBorder
-import com.device.deviceos.ui.theme.LoginButtonBorder
-import com.device.deviceos.ui.theme.LoginButtonEnd
-import com.device.deviceos.ui.theme.LoginButtonStart
-import com.device.deviceos.ui.theme.LoginError
-import com.device.deviceos.ui.theme.TextGray
-import com.device.deviceos.ui.theme.TextWhite
+import com.device.deviceos.common.theme.BackgroundOverlayBottom
+import com.device.deviceos.common.theme.BackgroundOverlayMiddle
+import com.device.deviceos.common.theme.BackgroundOverlayTop
+import com.device.deviceos.common.theme.Blue
+import com.device.deviceos.common.theme.InputBackground
+import com.device.deviceos.common.theme.InputBorder
+import com.device.deviceos.common.theme.LoginButtonBorder
+import com.device.deviceos.common.theme.LoginButtonEnd
+import com.device.deviceos.common.theme.LoginButtonStart
+import com.device.deviceos.common.theme.LoginError
+import com.device.deviceos.common.theme.TextGray
+import com.device.deviceos.common.theme.TextWhite
 
 // 模拟登录账号
 private const val USERNAME = "admin"
@@ -69,7 +69,9 @@ private const val PASSWORD = "123456"
  */
 @Composable
 fun LoginScreen(
-    onLoginSuccess: () -> Unit = {}
+    onLoginSuccess: () -> Unit = {},
+    // 注册点击事件
+    onRegisterClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
 
@@ -336,11 +338,10 @@ fun LoginScreen(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,
                     modifier = Modifier.clickable {
-                        Toast.makeText(
-                            context,
-                            "注册功能暂未开放",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        //跳转注册页面
+                        onRegisterClick(
+
+                        )
                     }
                 )
             }

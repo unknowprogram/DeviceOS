@@ -1,4 +1,4 @@
-package com.device.deviceos.ui.theme
+package com.device.deviceos.common.theme
 
 import androidx.compose.ui.graphics.Color
 

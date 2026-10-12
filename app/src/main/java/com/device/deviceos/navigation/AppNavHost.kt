@@ -44,6 +44,10 @@ fun AppNavHost(
                     navController.navigate(AppRoute.Launch) {
                         popUpTo(AppRoute.Login) { inclusive = true }
                     }
+                },
+                onRegisterClick = {
+                    // 点击"注册账号"，跳转到注册页
+                    navController.navigate(AppRoute.Register)
                 }
             )
         }
@@ -56,6 +60,10 @@ fun AppNavHost(
                     navController.navigate(AppRoute.VehicleScreen) {
                         popUpTo(AppRoute.Register) { inclusive = true }
                     }
+                },
+                onBackClick = {
+                    // 返回上一页（登录页）
+                    navController.popBackStack()
                 }
             )
         }
